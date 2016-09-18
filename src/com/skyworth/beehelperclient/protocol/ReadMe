@@ -1,0 +1,20 @@
+####客户端与服务端通用消息定义协议#####
+1.消息定义采用google protobuf数据通用协议，该协议具有传输,解析高效。
+2.每一条消息通过发送消息队列来处理,其中发送对象定义如下
+class SendTask {
+	private Context mContext;
+	//消息体
+	private String msg;
+}
+
+3.上述消息体定义如下
+class BodyMsg {
+	//消息ID
+	String uid;
+	//消息类型
+	int32 type;
+	//消息动作
+	int32 action;
+	//消息参数
+	bytes params;
+}
